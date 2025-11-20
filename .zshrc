@@ -11,26 +11,27 @@ ZINIT_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}/zinit/zinit.git"
 [ ! -d $ZINIT_HOME/.git ] && git clone https://github.com/zdharma-continuum/zinit.git "$ZINIT_HOME"
 source "${ZINIT_HOME}/zinit.zsh"
 
-# Powerlevel10k
+# Prompt
 zinit ice depth=1; zinit light romkatv/powerlevel10k
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
 # Zsh plugins
 zinit ice wait silent; zinit light zsh-users/zsh-syntax-highlighting
 zinit ice wait silent; zinit light zsh-users/zsh-completions
 zinit ice wait silent; zinit light zsh-users/zsh-history-substring-search
 zinit ice wait silent; zinit light Aloxaf/fzf-tab
+
 zinit ice wait silent; zinit snippet OMZP::command-not-found
 
 # Load completions
 autoload -U compinit && compinit
 zinit cdreplay -q
 
-# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh
-[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh 
-
 # Bindings
 bindkey '^[[A' history-substring-search-up
 bindkey '^[[B' history-substring-search-down
+bindkey '^[[1;5D' backward-word
+bindkey '^[[1;5C' forward-word
 
 # History
 HISTSIZE=5000
@@ -57,3 +58,5 @@ export EDITOR=nvim
 
 # Shell integrations
 eval "$(fzf --zsh)"
+
+
