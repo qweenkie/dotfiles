@@ -47,10 +47,10 @@ setopt hist_find_no_dups
 # Completion styling
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}' # Case insensitive completions (lowercase -> [lower/upper]case; uppercase -> upercase)
 zstyle ':completion:*' menu no
-zstyle ':fzf-tab:complete:cd:*' fzf-preview 'ls --color $realpath'
+zstyle ':fzf-tab:complete:cd:*' fzf-preview 'ls --color --group-directories-first $realpath'
 
 # Aliases
-alias ls='ls --color'
+alias ls='ls --color --group-directories-first'
 alias nivm='nvim'
 
 # Environment variables
