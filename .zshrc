@@ -15,12 +15,11 @@ source "${ZINIT_HOME}/zinit.zsh"
 zinit ice depth=1; zinit light romkatv/powerlevel10k
 
 # Zsh plugins
-zinit light zsh-users/zsh-syntax-highlighting
-zinit light zsh-users/zsh-completions
-zinit light Aloxaf/fzf-tab
-
-# Snippets
-zinit snippet OMZP::command-not-found
+zinit ice wait silent; zinit light zsh-users/zsh-syntax-highlighting
+zinit ice wait silent; zinit light zsh-users/zsh-completions
+zinit ice wait silent; zinit light zsh-users/zsh-history-substring-search
+zinit ice wait silent; zinit light Aloxaf/fzf-tab
+zinit ice wait silent; zinit snippet OMZP::command-not-found
 
 # Load completions
 autoload -U compinit && compinit
@@ -30,6 +29,8 @@ zinit cdreplay -q
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh 
 
 # Bindings
+bindkey '^[[A' history-substring-search-up
+bindkey '^[[B' history-substring-search-down
 
 # History
 HISTSIZE=5000
