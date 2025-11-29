@@ -32,9 +32,9 @@ bindkey '^[[A' history-substring-search-up
 bindkey '^[[B' history-substring-search-down
 bindkey '^[[1;5D' backward-word
 bindkey '^[[1;5C' forward-word
-bindkey '^[[3~' delete-char
 bindkey '^[[H' beginning-of-line
 bindkey '^[[F' end-of-line
+bindkey '^[[3~' delete-char
 
 # History
 HISTSIZE=5000
@@ -48,7 +48,7 @@ setopt hist_ignore_space
 setopt hist_find_no_dups
 
 # Completion styling
-zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}' # Case insensitive completions (lowercase -> [lower/upper]case; uppercase -> upercase)
+zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}' # Case insensitive completions (lowercase -> [lower/upper]case; uppercase -> uppercase)
 zstyle ':completion:*' menu no
 zstyle ':fzf-tab:complete:cd:*' fzf-preview 'ls --color --group-directories-first $realpath'
 
@@ -57,7 +57,7 @@ alias ls='ls --color --group-directories-first'
 alias nivm='nvim'
 
 # Environment variables
-export EDITOR=nvim
+export EDITOR=/usr/bin/nvim
 
 # Shell integrations
 eval "$(fzf --zsh)"
