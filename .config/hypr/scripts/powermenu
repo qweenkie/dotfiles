@@ -1,18 +1,18 @@
 #!/usr/bin/env bash
 
 entries=(
-    "  Lock"
     "  Logout"
+    "󰒲  Suspend"
     "  Reboot"
     "  Hibernate"
-    "  BIOS"
+    "  Reboot into BIOS"
 )
 
 case "$1" in
     "") printf '%s\n' "${entries[@]}" ;;
-    "  Lock") loginctl lock-session ;;
     "  Logout") hyprctl dispatch exit ;;
-    "  Reboot") systemctl reboot ;;
+    "󰒲  Suspend") systemctl suspend ;;
     "  Hibernate") systemctl hibernate ;;
-    "  BIOS") systemctl reboot --firmware-setup ;;
+    "  Reboot") systemctl reboot ;;
+    "  Boot into BIOS") systemctl reboot --firware-setup ;;
 esac
