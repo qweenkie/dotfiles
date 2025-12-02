@@ -1,27 +1,43 @@
 ## Dependencies
 
-First, the programs configured
+The programs configured/used
+```
+$ dunst
+$ firefox
+$ foot
+$ grim
+$ hypridle
+$ hyprland
+$ hyprpaper
+$ hyprpicker
+$ rofi
+$ signal-desktop
+$ slurp
+$ steam
+$ telegram-desktop
+$ waybar
+$ webcord
+$ wl-clipboard
+$ zsh
+```
 
+The programs used for syncing and generating symlinks
 ```
-$ sudo pacman -S dunst foot hyprland rofi waybar zsh
+$ git
+$ stow
 ```
 
-Then, the other needed programs
-```
-$ sudo pacman -S git stow
-```
 
 ## Installation
 
-First, check out the repo in your $HOME directory with git
-
+First, checkout the repo in your $HOME directory with git
 ```
 $ git clone git@github.com/qweenkie/dotfiles.git
 $ cd dotfiles
 ```
 
 Then, use GNU Stow to generate symlinks
-
 ```
 $ stow .
 ```
+
