@@ -1,13 +1,15 @@
 #/usr/bin/env bash
+hyprpaper &
 
 WALLPAPER_DIR="$HOME/.local/share/wallpapers/"
 TIMER_DURATION=600 # 10 minutes
 
-hyprctl hyprpaper reload ,"$(find $WALLPAPER_DIR -type f | shuf -n 1)"
+sleep 5 # Give time for hyprpaper to start up
 
-while sleep $TIMER_DURATION; do
+while true; do
     CURRENT_WALL=$(hyprctl hyprpaper listloaded)
     NEW_WALL=$(find "$WALLPAPER_DIR" -type f ! -name "$(basename "$CURRENT_WALL")" | shuf -n 1)
 
     hyprctl hyprpaper reload ,"$NEW_WALL"
+    sleep $TIMER_DURATION
 done
