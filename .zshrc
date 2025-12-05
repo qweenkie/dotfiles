@@ -58,8 +58,7 @@ alias nivm='nvim'
 
 # Environment variables
 export EDITOR=/usr/bin/nvim
+go env -w GOPATH=$HOME/.local/share/go
 
 # Shell integrations
 eval "$(fzf --zsh)"
-
-
