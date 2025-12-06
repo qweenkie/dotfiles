@@ -23,5 +23,5 @@ export __GL_GSYNC_ALLOWED=1             # Controls if G-Sync capable monitors sh
 export __GL_VRR_ALLOWED=0               # Controls if Adaptive Sync should be used. Recommended to set as “0” to avoid having problems on some games.
 
 # Cursor
-XCURSOR_THEME=Bibata-Modern-Ice
-XCURSOR_SIZE=28
+export XCURSOR_THEME=Bibata-Modern-Ice
+export XCURSOR_SIZE=28
