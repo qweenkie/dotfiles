@@ -59,10 +59,9 @@ alias lsS='ls -lhA'
 alias nivm='nvim'
 
 # Environment variables
-export EDITOR=/usr/bin/nvim
+export EDITOR=nvim
 go env -w GOPATH=$HOME/.local/share/go
 
 # Shell integrations
-eval "$(niri completions zsh)"
 eval "$(fzf --zsh)"
 eval "$(chezmoi completion zsh)"

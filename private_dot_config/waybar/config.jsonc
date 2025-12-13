@@ -41,8 +41,11 @@
 	"clock": {
 		"format": "{:%H:%M}",
 		"format-alt": "{:%d/%m/%Y}",
+
+		"tooltip": false,
 	},
 	"cpu": {
+		"interval": 1,
 		"format": "CPU: {icon0}{icon1}{icon2}{icon3}{icon4}{icon5}{icon6}{icon7}{icon8}{icon9}{icon10}{icon11}",
 		"format-icons": ["▁", "▂", "▃", "▄", "▅", "▆", "▇", "█"],
 	},
@@ -54,7 +57,9 @@
 	},
 	"memory": {
 		"format": "RAM: {percentage}%",
-		"tooltip-format": "{used}/{total} GiB\n{swapUsed}/{swapTotal} GiB (swap)"
+		"tooltip-format": "{used}/{total} GiB\n{swapUsed}/{swapTotal} GiB (swap)",
+
+		"min-length": 8,
 	},
 	"network": {
 		"format-wifi": " ",
@@ -73,6 +78,8 @@
 	},
 	"niri/window": {
 		"format": "{app_id}",
+
+		"tooltip": false,
 	},
 	"niri/workspaces": {
 		"format": "{icon}",
@@ -83,8 +90,9 @@
 	},
 	"tray": {
 		"spacing": 16,
+		"show-passive-items": true,
 		"icons": {
 			"blueman": "bluetooth"
-		}
+		},
 	}
 }

@@ -259,7 +259,7 @@ window-rule {
 }
 
 window-rule {
-	match app-id="firefox-nightly"
+	match app-id="librewolf"
 	match app-id="steam" title="^Steam$"
 
 	open-maximized true
@@ -268,6 +268,7 @@ window-rule {
 // All steam windows except for steam itself should be floating.
 window-rule {
 	match app-id="steam"
+	match app-id="blueman-manager"
 	exclude app-id="steam" title="^Steam$"
 
 	open-floating true
