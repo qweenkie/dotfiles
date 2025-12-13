@@ -50,7 +50,7 @@ binds {
 
 	// App launcher binds
 	Mod+Space       hotkey-overlay-title="Application Launcher"        { spawn-sh "pkill fuzzel || fuzzel";           }
-	Mod+Shift+Space hotkey-overlay-title="Toggle Bar"                  { spawn-sh "pkill waybar || waybar"; }
+	Mod+Shift+Space hotkey-overlay-title="Toggle Bar"                  { spawn-sh "pkill waybar || waybar";           }
 	Mod+Return      hotkey-overlay-title="Terminal"                    { spawn    "foot";                             }
 	Mod+T           hotkey-overlay-title="Resource Monitor (btop)"     { spawn-sh "foot btop";                        }
 	Mod+X           hotkey-overlay-title="LibreWolf"                   { spawn    "librewolf";                        }
@@ -159,7 +159,7 @@ binds {
 layout {
 	gaps 5
 	center-focused-column "on-overflow"
-	default-column-width { proportion 0.5; }
+	default-column-width { proportion 1.0; }
 
 	focus-ring {
 		width 2
@@ -181,7 +181,7 @@ layout {
 spawn-at-startup "xdg-desktop-portal-gtk" // Default fallback xdg portal
 spawn-at-startup "xdg-desktop-portal-gnome" // Required for screencasting support
 
-spawn-at-startup "~/.config/niri/scripts/swayidle-init.sh" // Idle daemon
+spawn-at-startup    "~/.config/niri/scripts/swayidle-init.sh" // Idle daemon
 spawn-sh-at-startup "~/.config/niri/scripts/wallpaper-shuffle.sh || swaybg -c 1c1c1c" // Wallpapers
 spawn-at-startup "mako" // Notification daemon
 spawn-at-startup "waybar" // Status bar
