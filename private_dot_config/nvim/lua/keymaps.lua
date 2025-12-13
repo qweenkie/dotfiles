@@ -32,3 +32,8 @@ vim.keymap.set("n", "<C-S-k>", "<C-w>K", { desc = "Move focus to the upper windo
 
 vim.keymap.set("n", "<C-S-right>", "<C-w>L", { desc = "Move focus to the right window" })
 vim.keymap.set("n", "<C-S-l>", "<C-w>L", { desc = "Move focus to the right window" })
+
+vim.keymap.set("n", "<left>", "<cmd>echo 'Use [h]jkl to move!'<CR>")
+vim.keymap.set("n", "<down>", "<cmd>echo 'Use h[j]kl to move!'<CR>")
+vim.keymap.set("n", "<up>", "<cmd>echo 'Use hj[k]l to move!'<CR>")
+vim.keymap.set("n", "<right>", "<cmd>echo 'Use hjk[l] to move!'<CR>")
