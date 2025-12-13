@@ -1,0 +1,332 @@
+// ~~~~~~~~~~~~~~ //
+// INPUT SETTINGS //
+// ~~~~~~~~~~~~~~ //
+
+input {
+	keyboard {
+		xkb {
+			layout "us,ru,ua"
+			options "grp:shift_caps_toggle,caps:none,fkeys:basic_13-24"
+		}
+	}
+	mouse {
+		accel-speed 1
+		accel-profile "flat"
+	}
+
+	touchpad { off; }
+	trackpoint { off; }
+	trackball { off; }
+	tablet { off; }
+	touch { off; }
+
+	focus-follows-mouse max-scroll-amount="0%"
+}
+gestures {
+	hot-corners { off; }
+}
+
+// ~~~~~~~~~~~~~~~ //
+// OUTPUT SETTINGS //
+// ~~~~~~~~~~~~~~~ //
+
+// To detect the output name, run `niri msg outputs`
+output "DP-2" {
+	mode "2560x1440@165.001"
+
+	scale 1
+	transform "normal"
+
+	variable-refresh-rate 
+}
+
+// ~~~~~~~~~~~~ //
+// KEY BINDINGS //
+// ~~~~~~~~~~~~ //
+
+binds {
+	// Hotkey overlay in case you forget something
+	Mod+Shift+Slash { show-hotkey-overlay; } // Mod+Shift+Slash is basically just Mod+?
+
+	// App launcher binds
+	Mod+Space       hotkey-overlay-title="Application Launcher"        { spawn-sh "pkill fuzzel || fuzzel";           }
+	Mod+Shift+Space hotkey-overlay-title="Toggle Bar"                  { spawn-sh "pkill waybar || waybar"; }
+	Mod+Return      hotkey-overlay-title="Terminal"                    { spawn    "foot";                             }
+	Mod+T           hotkey-overlay-title="Resource Monitor (btop)"     { spawn-sh "foot btop";                        }
+	Mod+X           hotkey-overlay-title="LibreWolf"                   { spawn    "librewolf";                        }
+	Mod+Shift+X     hotkey-overlay-title="LibreWolf (private session)" { spawn-sh "librewolf --private-window";       }
+	Mod+Escape      hotkey-overlay-title="Power Menu"                  { spawn-sh "pkill wleave || wleave";           }
+
+	// Move focus between columns/workspaces
+	Mod+H { focus-column-left;              }
+	Mod+J { focus-window-or-workspace-down; }
+	Mod+K { focus-window-or-workspace-up;   }
+	Mod+L { focus-column-right;             }
+	Mod+Home { focus-column-first; }
+	Mod+End  { focus-column-last;  }
+
+	// Move columns/windows
+	Mod+Shift+H { move-column-left;                      }
+	Mod+Shift+J { move-window-down-or-to-workspace-down; }
+	Mod+Shift+K { move-window-up-or-to-workspace-up;     }
+	Mod+Shift+L { move-column-right;                     }
+	Mod+Shift+Home { move-column-to-first; }
+	Mod+Shift+End  { move-column-to-last;  }
+
+	// Move focus between monitors
+	Mod+Ctrl+H { focus-monitor-left;  }
+	Mod+Ctrl+J { focus-monitor-down;  }
+	Mod+Ctrl+K { focus-monitor-up;    }
+	Mod+Ctrl+L { focus-monitor-right; }
+
+	// Move columns/windows between monitors
+	Mod+Ctrl+Shift+H { move-column-to-monitor-left;  }
+	Mod+Ctrl+Shift+J { move-column-to-monitor-down;  }
+	Mod+Ctrl+Shift+K { move-column-to-monitor-up;    }
+	Mod+Ctrl+Shift+L { move-column-to-monitor-right; }
+
+	// Move focus between workspaces by the workspace index
+	Mod+1 { focus-workspace 1;  }
+	Mod+2 { focus-workspace 2;  }
+	Mod+3 { focus-workspace 3;  }
+	Mod+4 { focus-workspace 4;  }
+	Mod+5 { focus-workspace 5;  }
+	Mod+6 { focus-workspace 6;  }
+	Mod+7 { focus-workspace 7;  }
+	Mod+8 { focus-workspace 8;  }
+	Mod+9 { focus-workspace 9;  }
+	Mod+0 { focus-workspace 10; }
+
+	// Move column between workspaces by the workspace index
+	Mod+Shift+1 { move-column-to-workspace 1;  }
+	Mod+Shift+2 { move-column-to-workspace 2;  }
+	Mod+Shift+3 { move-column-to-workspace 3;  }
+	Mod+Shift+4 { move-column-to-workspace 4;  }
+	Mod+Shift+5 { move-column-to-workspace 5;  }
+	Mod+Shift+6 { move-column-to-workspace 6;  }
+	Mod+Shift+7 { move-column-to-workspace 7;  }
+	Mod+Shift+8 { move-column-to-workspace 8;  }
+	Mod+Shift+9 { move-column-to-workspace 9;  }
+	Mod+Shift+0 { move-column-to-workspace 10; }
+
+	// Change window/column sizes
+	Mod+F { maximize-column; }
+	Mod+Shift+F { fullscreen-window; }
+	Mod+Minus { set-column-width "-10%"; }
+	Mod+Equal { set-column-width "+10%"; }
+	Mod+Shift+Minus { set-window-height "-10%"; }
+	Mod+Shift+Equal { set-window-height "+10%"; }
+
+	Mod+C { center-column; }
+	Mod+V { toggle-window-floating; }
+
+	// Close window
+	Mod+W repeat=false { close-window; }
+
+	// Overbview
+	Mod+Tab   repeat=false { toggle-overview; }
+	Mod+Grave repeat=false { toggle-overview; }
+
+	// Screenshots
+	Print      { screenshot;        }
+	Ctrl+Print { screenshot-screen; }
+	Alt+Print  { screenshot-window; }
+
+	// Volume key mappings for pipewire & wireplumber
+	XF86AudioRaiseVolume allow-when-locked=true { spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.1+ -l 1.0"; }
+	XF86AudioLowerVolume allow-when-locked=true { spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.1-";        }
+	XF86AudioMute        allow-when-locked=true { spawn-sh "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle";        }
+	XF86AudioMicMute     allow-when-locked=true { spawn-sh "wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle";      }
+
+	// Media key mappings
+	XF86AudioPlay allow-when-locked=true { spawn-sh "playerctl play-pause"; }
+	XF86AudioStop allow-when-locked=true { spawn-sh "playerctl stop";       }
+	XF86AudioPrev allow-when-locked=true { spawn-sh "playerctl previous";   }
+	XF86AudioNext allow-when-locked=true { spawn-sh "playerctl next";       }
+
+	// Brgightness key mappings (mostly just for laptops)
+	XF86MonBrightnessUp   allow-when-locked=true { spawn "brightnessctl" "--class=backlight" "set" "+10%"; }
+	XF86MonBrightnessDown allow-when-locked=true { spawn "brightnessctl" "--class=backlight" "set" "10%-"; }
+
+	// Quit niri
+	Ctrl+Alt+Delete { quit; }
+}
+
+// ~~~~~~~~~~~~~~~ //
+// LAYOUT SETTINGS //
+// ~~~~~~~~~~~~~~~ //
+
+layout {
+	gaps 5
+	center-focused-column "on-overflow"
+	default-column-width { proportion 0.5; }
+
+	focus-ring {
+		width 2
+	}
+	border { off; }
+
+	shadow {
+		on
+		draw-behind-window false
+	}
+
+	tab-indicator { hide-when-single-tab; }
+}
+
+// ~~~~~~~~~~~~~~~~~~ //
+// AUTOSTART SETTINGS //
+// ~~~~~~~~~~~~~~~~~~ //
+
+spawn-at-startup "xdg-desktop-portal-gtk" // Default fallback xdg portal
+spawn-at-startup "xdg-desktop-portal-gnome" // Required for screencasting support
+
+spawn-at-startup "~/.config/niri/scripts/swayidle-init.sh" // Idle daemon
+spawn-sh-at-startup "~/.config/niri/scripts/wallpaper-shuffle.sh || swaybg -c 1c1c1c" // Wallpapers
+spawn-at-startup "mako" // Notification daemon
+spawn-at-startup "waybar" // Status bar
+
+// All the tray apps
+spawn-sh-at-startup "steam -silent"
+spawn-sh-at-startup "Telegram -startintray"
+spawn-sh-at-startup "signal-desktop --start-in-tray"
+spawn-sh-at-startup "webcord --start-minimized"
+
+// ~~~~~~~~~~~~~ //
+// MISCELLANEOUS //
+// ~~~~~~~~~~~~~ //
+
+// Disable window decorations by default, unless explicitly stated otherwise
+prefer-no-csd
+
+// The format in which screenshots are saved
+screenshot-path "~/screenshot--%d-%m-%Y--%H-%M-%S.png"
+
+// Environment variables
+environment {
+	GDK_BACKEND     "wayland,x11,*"
+	QT_QPA_PLATFORM "wayland;xcb"
+
+	XDG_CURRENT_DESKTOP "niri"
+	XDG_SESSION_DESKTOP "niri"
+	XDG_SESSION_TYPE "wayland"
+
+	QT_QPA_PLATFORMTHEME "qt5ct" // Useful for qt5ct+Kvantum theming
+
+	GBM_BACKEND               "nvidia-drm"
+	__GLX_VENDOR_LIBRARY_NAME "nvidia"
+	LIBVA_DRIVER_NAME         "nvidia" // Hardware acceleration
+
+	ELECTRON_OZONE_PLATFORM_HINT "auto"
+
+	DISPLAY ":0"
+}
+
+// Cursor settings (duh)
+cursor {
+	xcursor-theme "Bibata-Modern-Ice"
+	xcursor-size 28
+
+	hide-when-typing
+	hide-after-inactive-ms 10000
+}
+
+// Disable middle-click pasting
+clipboard { disable-primary; }
+
+// Disable the hotkey overlay popup on startup
+hotkey-overlay {
+	skip-at-startup
+	hide-not-bound
+}
+
+// ~~~~~~~~~~~~~~ //
+// WINDOW & LAYER //
+//	  RULES	 //
+// ~~~~~~~~~~~~~~ //
+
+// Rounded edges
+window-rule {
+	geometry-corner-radius 5
+	clip-to-geometry true
+}
+
+// Basically this makes all floating windows bob up and down a little.
+window-rule {
+	match is-floating=true
+
+	baba-is-float true
+}
+
+window-rule {
+	match app-id="firefox-nightly"
+	match app-id="steam" title="^Steam$"
+
+	open-maximized true
+}
+
+// All steam windows except for steam itself should be floating.
+window-rule {
+	match app-id="steam"
+	exclude app-id="steam" title="^Steam$"
+
+	open-floating true
+}
+
+// Add a shadow and rounder corners for fuzzel.
+layer-rule {
+	match namespace="^launcher$"
+
+	shadow { on; }
+	geometry-corner-radius 10
+	baba-is-float true
+}
+
+// ~~~~~~~~~~ //
+// ANIMATIONS //
+// ~~~~~~~~~~ //
+
+animations {
+	// Despite the name, this actually makes the animations much faster
+	slowdown 0.3
+
+	workspace-switch {
+		duration-ms 200
+		curve "ease-out-expo"
+	}
+
+	window-open {
+		duration-ms 150
+		curve "ease-out-expo"
+	}
+
+	window-close {
+		duration-ms 150
+		curve "ease-out-quad"
+	}
+
+	horizontal-view-movement {
+		spring damping-ratio=1.0 stiffness=800 epsilon=0.0001
+	}
+
+	window-movement {
+		spring damping-ratio=1.0 stiffness=800 epsilon=0.0001
+	}
+
+	window-resize {
+		spring damping-ratio=1.0 stiffness=800 epsilon=0.0001
+	}
+
+	config-notification-open-close {
+		spring damping-ratio=0.6 stiffness=1000 epsilon=0.001
+	}
+
+	screenshot-ui-open {
+		duration-ms 200
+		curve "ease-out-quad"
+	}
+
+	overview-open-close {
+		spring damping-ratio=0.9 stiffness=800 epsilon=0.001
+	}
+}
