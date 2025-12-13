@@ -114,6 +114,7 @@ binds {
 	Mod+Shift+F { fullscreen-window; }
 	Mod+Minus { set-column-width "-10%"; }
 	Mod+Equal { set-column-width "+10%"; }
+	Mod+Backslash { switch-preset-column-width; }
 	Mod+Shift+Minus { set-window-height "-10%"; }
 	Mod+Shift+Equal { set-window-height "+10%"; }
 
@@ -159,7 +160,15 @@ binds {
 layout {
 	gaps 5
 	center-focused-column "on-overflow"
-	default-column-width { proportion 1.0; }
+	always-center-single-column
+
+	default-column-width { proportion 0.5; }
+	preset-column-widths {
+		proportion 0.3
+		proportion 0.5
+		proportion 0.7
+		proportion 1.0
+	}
 
 	focus-ring {
 		width 2
