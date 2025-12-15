@@ -1,0 +1,93 @@
+{
+	"layer": "top",
+	"position": "top",
+	"height": 16,
+	"spacing": 16,
+
+	"modules-left": [
+		"custom/blank",
+		"hyprland/workspaces",
+		"hyprland/window",
+	],
+	"modules-center": [
+		"clock",
+	],
+	"modules-right": [
+		"hyprland/language",
+		"custom/separator",
+		"memory",
+		"custom/separator",
+		"cpu",
+		"custom/separator",
+		"network",
+		"bluetooth",
+		"custom/separator",
+		"tray",
+		"custom/blank"
+	],
+
+	"bluetooth": {
+		"format-connected": "󰂯",
+
+		"format-on": "󰂯",
+		"format-off": "󰂲",
+
+		"format-enabled": "󰂯",
+		"format-disabled": "󰂲",
+
+		"tooltip-format-connected": "{device_enumerate}",
+		"tooltip-format-enumerate-connected": "{device_alias}\t({device_address})\n\t\t {device_battery_percentage}% charged"
+	},
+	"clock": {
+		"format": "{:%H:%M}",
+		"format-alt": "{:%d/%m/%Y}",
+
+		"tooltip": false,
+	},
+	"cpu": {
+		"interval": 1,
+		"format": "CPU: {icon0}{icon1}{icon2}{icon3}{icon4}{icon5}{icon6}{icon7}{icon8}{icon9}{icon10}{icon11}",
+		"format-icons": ["▁", "▂", "▃", "▄", "▅", "▆", "▇", "█"],
+	},
+	"custom/blank": {
+		"format": "  ",
+		"tooltip": false,
+	},
+	"custom/separator": {
+		"format": " | ",
+		"tooltip": false,
+	},
+	"hyprland/language": {
+		"format": "{}",
+
+		"format-en": "US",
+		"format-ru": "RU",
+		"format-uk": "UA",
+	},
+	"hyprland/window": {
+		"format": "{class}",
+
+		"tooltip": false,
+	},
+	"hyprland/workspaces": {
+		"format": "{icon}",
+		"format-icons": {
+			"default": "○",
+			"active": "●",
+		}
+	},
+	"memory": {
+		"format": "RAM: {percentage}%",
+		"tooltip-format": "{used}/{total} GiB\n{swapUsed}/{swapTotal} GiB (swap)",
+
+		"min-length": 8,
+	},
+	"network": {
+		"format-wifi": " ",
+		"format-ethernet": " ",
+		"format-disconnected": "󰤯 ",
+
+		"tooltip-format": "{ifname}: {essid}\t({ipaddr})",
+		"tooltip-format-disconnected": "disconnected"
+	},
+}
