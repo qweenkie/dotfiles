@@ -64,11 +64,10 @@
 	},
 	"hyprland/window": {
 		"format": "{class}",
-
 		"tooltip": false,
 	},
 	"hyprland/workspaces": {
-		"format": "{icon}",
+		"format": "[ {id}: {icon} ]",
 		"format-icons": {
 			"default": "○",
 			"active": "●",
@@ -78,14 +77,14 @@
 		"format": "RAM: {percentage}%",
 		"tooltip-format": "{used}/{total} GiB\n{swapUsed}/{swapTotal} GiB (swap)",
 
-		"min-length": 8,
+		"min-length": 9,
 	},
 	"network": {
 		"format-wifi": " ",
 		"format-ethernet": " ",
 		"format-disconnected": "󰤯 ",
 
-		"tooltip-format": "{ifname}: {essid}\t({ipaddr})",
+		"tooltip-format": "{ifname}: {essid} ({ipaddr})",
 		"tooltip-format-disconnected": "disconnected"
 	},
 }
