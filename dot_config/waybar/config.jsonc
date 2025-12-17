@@ -80,9 +80,13 @@
 		"min-length": 9,
 	},
 	"network": {
-		"format-wifi": " ",
+		"format-wifi": "{icon}",
+		"format-icons": ["󰤯 ", "󰤟 ", "󰤢 ", "󰤥 ", "󰤨 "],
+		"interval": 10,
+
 		"format-ethernet": " ",
-		"format-disconnected": "󰤯 ",
+		"format-linked": " ",
+		"format-disconnected": "󰖪 ",
 
 		"tooltip-format": "{ifname}: {essid} ({ipaddr})",
 		"tooltip-format-disconnected": "disconnected"
