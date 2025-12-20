@@ -53,6 +53,7 @@ zstyle ':completion:*' menu no
 zstyle ':fzf-tab:complete:cd:*' fzf-preview 'ls --color --group-directories-first $realpath'
 
 # Aliases
+alias grep='grep --color=always'
 alias ls='ls --color --group-directories-first'
 alias lss='ls -lh'
 alias lsS='ls -lhA'
