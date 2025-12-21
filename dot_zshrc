@@ -58,6 +58,7 @@ alias ls='ls --color --group-directories-first'
 alias lss='ls -lh'
 alias lsS='ls -lhA'
 alias nivm='nvim'
+alias sduo='sudo'
 
 # Environment variables
 export EDITOR=nvim
