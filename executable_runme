@@ -1,9 +1,4 @@
 #!/usr/bin/bash
 
-echo 'export ZDOTDIR="$XDG_CONFIG_HOME/zsh"' >> /etc/zsh/zshenv
-
-if [[ -d ~/.pki ]]; then
-	mv .pki $XDG_DATA_HOME && mv $XDG_DATA_HOME/.pki $XDG_DATA_HOME/pki
-fi
-
+echo 'export ZDOTDIR="$HOME/.config/zsh"' >> /etc/zsh/zshenv
 rm ./runme
