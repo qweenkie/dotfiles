@@ -62,7 +62,7 @@ alias sduo='sudo'
 
 # Environment variables
 export EDITOR=nvim
-go env -w GOPATH=$HOME/.local/share/go
+go env -w GOPATH="$XDG_DATA_HOME/go"
 
 # Shell integrations
 eval "$(fzf --zsh)"
