@@ -1,0 +1,4 @@
+# Use LLD linker
+[target.x86_64-unknown-linuix-gnu]
+linker = "clang"
+rustflags = [ "-C", "link-arg=-fuse-ld=lld" ]
