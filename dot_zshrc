@@ -59,6 +59,7 @@ alias lss='ls -lh'
 alias lsS='ls -lhA'
 alias nivm='nvim'
 alias sduo='sudo'
+[[ $TERM -eq "xterm-kitty" ]] && alias kssh='kitten ssh'
 
 # Environment variables
 export EDITOR=nvim
