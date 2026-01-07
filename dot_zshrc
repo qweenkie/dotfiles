@@ -59,6 +59,7 @@ alias lss='ls -lh'
 alias lsS='ls -lhA'
 alias nivm='nvim'
 alias sduo='sudo'
+alias chezmio='chezmoi'
 [[ $TERM -eq "xterm-kitty" ]] && alias kssh='kitten ssh'
 
 # Environment variables
