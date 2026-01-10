@@ -1,0 +1,9 @@
+[Unit]
+Description=Automatically launch hyprland within UWSM on login.
+
+[Service]
+ExecStart=/usr/bin/uwsm start hyprland.desktop
+Type=simple
+
+[Install]
+WantedBy=default.target
