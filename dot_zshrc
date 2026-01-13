@@ -64,6 +64,7 @@ alias chezmio='chezmoi'
 
 # Environment variables
 export EDITOR=nvim
+export GOPATH='$XDG_DATA_HOME/go'
 
 # Shell integrations
 eval "$(fzf --zsh)"
