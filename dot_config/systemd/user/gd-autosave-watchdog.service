@@ -1,0 +1,9 @@
+[Unit]
+Description=Automatically launch a watchdog, which automates committing and pushing Geometry Dash automatic backups.
+
+[Service]
+ExecStart=/home/linus/gd-backups/run.sh
+Type=simple
+
+[Install]
+WantedBy=default.target
