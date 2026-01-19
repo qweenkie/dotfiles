@@ -145,8 +145,8 @@ return {
 	},
 
 	-- `rustaceanvim` is a preconfigured fork of rust-tools.nvim
-	{
-		"mrcjkb/rustaceanvim",
-		lazy = false, -- This plugin is already lazy
-	},
+	-- {
+	-- 	"mrcjkb/rustaceanvim",
+	-- 	lazy = false, -- This plugin is already lazy
+	-- },
 }
