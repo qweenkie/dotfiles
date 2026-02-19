@@ -63,7 +63,13 @@ alias chezmio='chezmoi'
 [[ $TERM -eq "xterm-kitty" ]] && alias kssh='kitten ssh'
 
 function ggez-curl() {
-	curl -o "ggez-init.sh" "https://raw.githubusercontent.com/qweenkie/ggez-template/refs/heads/master/init.sh" && chmod +x ./ggez-init.sh
+	curl -o "ggez-init.sh" "https://raw.githubusercontent.com/qweenkie/ggez-template/refs/heads/master/init.sh"
+
+	if [[ -e ./ggez-init.sh ]]; then
+		chmod +x ./ggez-init.sh
+		./ggez-init.sh $1
+		rm ggez-init.sh
+	fi
 }
 
 # Environment variables
