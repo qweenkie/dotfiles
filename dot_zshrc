@@ -62,6 +62,10 @@ alias sduo='sudo'
 alias chezmio='chezmoi'
 [[ $TERM -eq "xterm-kitty" ]] && alias kssh='kitten ssh'
 
+function ggez-curl() {
+	curl -o "ggez-init.sh" "https://raw.githubusercontent.com/qweenkie/ggez-template/refs/heads/master/init.sh" && chmod +x ./ggez-init.sh
+}
+
 # Environment variables
 export EDITOR=nvim
 export GOPATH='$XDG_DATA_HOME/go'
